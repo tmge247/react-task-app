@@ -9,9 +9,10 @@ type Props = {
         >
     ) => void; // 入力が変更されたときに呼ばれる関数の型
     onSubmit: (e: React.SubmitEvent<HTMLFormElement>) => void; // フォームが送信されたときに呼ばれる関数の型
+    id?: string;
 }
 
-export default function TaskForm({ formData, onChange, onSubmit }: Props) {
+export default function TaskForm({ formData, onChange, onSubmit, id }: Props) {
     return (
         <form onSubmit={onSubmit} className={styles.form}>
             <div className={styles.formGroup}>
@@ -52,7 +53,7 @@ export default function TaskForm({ formData, onChange, onSubmit }: Props) {
                 />
             </div>
             <button type="submit" className={styles.submitButton}>
-                作成する
+                {id ? "更新する" : "作成する"}
             </button>
         </form>
     );
