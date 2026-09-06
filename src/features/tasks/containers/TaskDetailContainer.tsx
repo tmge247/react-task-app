@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getTaskById } from "../hooks/getTaskById";
 import type { Task } from "../../../types/task";
 import TaskDetail from "../components/TaskDetail"
+import TaskDeleteButton from "../components/TaskDeleteButton";
 import styles from "../styles/taskDetail.module.css"
 
 function TaskDetailContainer() {
@@ -38,7 +39,10 @@ function TaskDetailContainer() {
 
      return (
         <div className={styles.taskDetailContainer}>
-            <TaskDetail task={task} />{/* 取得したタスク情報をTaskDetailコンポーネントに渡す */}
+            <TaskDetail task={task} />
+            <div>
+                <TaskDeleteButton id={id} />
+            </div>
         </div>
      )
 }
